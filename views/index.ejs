@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <%- include('./layout/head') %>
     </head>
     <body>
         <main>
-            <header>Proof of life:</header>
+            <header>
+                <%- include('./layout/header')
+            </header>
             <section>
                 <p>hello world</p>
             </section>
@@ -15,6 +17,7 @@
             <section>
 
             </section>
+            <%- include('./layout/footer') %>
         </main>
     </body>
 </html>
