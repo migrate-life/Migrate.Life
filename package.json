@@ -1,0 +1,27 @@
+{
+  "name": "migrate.life",
+  "version": "1.0.0",
+  "description": "Application for picking a new place to live",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/migrate-life/Migrate.Life.git"
+  },
+  "author": "Ian, Spence, Jon, TanMan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/migrate-life/Migrate.Life/issues"
+  },
+  "homepage": "https://github.com/migrate-life/Migrate.Life#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "pg": "^7.8.1",
+    "superagent": "^4.1.0"
+  }
+}

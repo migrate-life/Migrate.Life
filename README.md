@@ -1,6 +1,8 @@
 # Migrate.Life
 Do you want to live somewhere else? Are you unhappy with where you live? Welcome, this is the app for you!
 
+"Find where you flourish"
+
 ***USER STORIES***
 As a User, I want a streamlined site that is easy to understand and obvious to navigate without prompts.
 
