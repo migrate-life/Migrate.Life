@@ -24,4 +24,4 @@ As a Developer, I want to have an application that pulls from reliable APIs to r
 As a Developer, I want accurate information from my APIs such as temperature/population density, local economy/cost of living.
 
 
-resolution : 15 min walks, and facilitating conversation by another partner
+resolution : 15 min walks, and facilitating conversation by another partner 
