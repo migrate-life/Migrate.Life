@@ -22,3 +22,6 @@ As a Developer, I want my users to be able to navigate my application with a sim
 As a Developer, I want to have an application that pulls from reliable APIs to render the results I specify for my users.
 
 As a Developer, I want accurate information from my APIs such as temperature/population density, local economy/cost of living.
+
+
+resolution : 15 min walks, and facilitating conversation by another partner  
