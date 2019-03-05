@@ -10,12 +10,12 @@
             </header>
             <section class="city-view">
               <ul id="city-list">
-                <% cities.forEach(city => {
-                  <li class="city item" data-id="<% city.id %>">
+                <% cities.forEach(city => { %>
+                  <li class="city item" data-id="<%= city.id %>">
                     <h4><%= city.name %></h4>
-                    <p><%= city.temp</p>
+                    <p><%= city.temp %></p>
                   </li>
-                }) %>
+                <% }) %>
               </ul>
             </section>
             
