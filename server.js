@@ -20,9 +20,59 @@ app.use(express.static('./public'));
 app.get('/', (request, response) => response.render('index'))
 
 
-//Search by box http://api.openweathermap.org/data/2.5/box/city?bbox=-127.720257,28.945669,-78.347321,40.467845,6&APPID=2a1d02e59ff14681ad37807f0d520cda
+app.get('/search/:region', helperFunction);
+
+// function Region() {
+// }
+
+function helperFunction (request, response) {
+  let value = request.params.region;
+  if(value === 'north') {
+    var regionBox = {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'6'}
+  } else if(value === 'east') {
+    var regionBox = {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'5'}
+  } else if(value === 'west') {
+    var regionBox = {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'5'}
+  } else if(value === 'south') {
+    var regionBox = {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'6'}
+  } else {
+    response.render('pages/books/error')
+  }
+
+  let url = `http://api.openweathermap.org/data/2.5/box/city?bbox=${regionBox.left},${regionBox.bottom},${regionBox.right},${regionBox.top},${regionBox.zoom}&APPID=${process.env.OPEN_WEATHER_API_KEY}`
+
+  let placesIdk = [];
+
+  superagent.get(url)
+    .then(response => {
+      response.body.list.forEach(data => placesIdk.push(new Places(data)))
+      response.render('pages/searches/new', {places: placesIdk})
+    })
+}
+
+function Places(data) {
+  this.name = data.name;
+  this.latitude = data.coord.Lat;
+  this.longitude = data.coord.Lon;
+  this.temp = data.main.temp;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+
