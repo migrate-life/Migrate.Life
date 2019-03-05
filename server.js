@@ -30,9 +30,9 @@ function helperFunction (request, response) {
   if(value === 'north') {
     var regionBox = {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'6'}
   } else if(value === 'east') {
-    var regionBox = {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'5'}
+    var regionBox = {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'6'}
   } else if(value === 'west') {
-    var regionBox = {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'5'}
+    var regionBox = {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'6'}
   } else if(value === 'south') {
     var regionBox = {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'6'}
   } else {
@@ -44,10 +44,11 @@ function helperFunction (request, response) {
   let placesIdk = [];
 
   superagent.get(url)
-    .then(response => {
-      response.body.list.forEach(data => placesIdk.push(new Places(data)))
+    .then(results => {
+      results.body.list.forEach(data => placesIdk.push(new Places(data)))
       response.render('pages/searches/new', {places: placesIdk})
     })
+    .catch(console.log('this is an error'))
 }
 
 function Places(data) {
@@ -56,21 +57,6 @@ function Places(data) {
   this.longitude = data.coord.Lon;
   this.temp = data.main.temp;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
