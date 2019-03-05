@@ -20,5 +20,9 @@ app.use(express.static('./public'));
 app.get('/', (request, response) => response.render('index'))
 
 
+//Search by box http://api.openweathermap.org/data/2.5/box/city?bbox=-127.720257,28.945669,-78.347321,40.467845,6&APPID=2a1d02e59ff14681ad37807f0d520cda
+
+
+
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
