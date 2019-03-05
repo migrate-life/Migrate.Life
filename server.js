@@ -43,7 +43,7 @@ function helperFunction (request, response) {
 
   superagent.get(url)
     .then(response => {
-      response.body.list.forEach(data => places.push(new Places(data)))
+      response.body.list.forEach(data => placesIdk.push(new Places(data)))
       response.render('pages/searches/new', {places: placesIdk})
     })
 }
