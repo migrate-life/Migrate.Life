@@ -1,17 +1,19 @@
 *{
     text-decoration: none;
 }
-
-body {
+body{
     width: 100%;
     background: black;
     margin: auto;
+    
+
 }
 
-section {
+section{
     display: flex;
     flex-wrap: wrap;
     padding: 40px;
+
 }
 
 div {
@@ -25,19 +27,17 @@ div {
     flex-grow: inherit;
     margin: 20px;
 }
-
-a:hover {
+a:hover{
     background:white;
     border: 10px solid #666;
     border-radius: 15px;
     text-shadow: 3px red;
 }
-
-a {
+a{
     color: white;
     font-size: 60px;
 }
-
-a:hover {
+a:hover{
     color: black;
 }
+

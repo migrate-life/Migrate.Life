@@ -91,4 +91,56 @@ function getPrices(city) {
   return prices;
 }
 
+function getCities(request, response) {
+  let cities = [];
+  let prices = [];
+  let quality = [];
+
+  helperFunction(request, response)
+    .then(results => {
+      cities = results;
+      getPrices(results)
+      .then(res => {
+        prices = res;
+        
+      })
+    }
+
+    .catch()
+}
+
+function getQuality(){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
