@@ -1,11 +1,24 @@
-header{
-    font-size: 60px;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600');
+@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore|Montserrat:600');
+
+header {
     background: #333;
     color:white;
     text-align: center;
-    height: 120px;
-    line-height: 120px;
+    height: 140px;
+    line-height: 100px;
     margin-bottom: 100px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+}
+
+h2 {
+    margin-top: -50px;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 28px;
 }
 
 *{
@@ -46,6 +59,7 @@ li p{
 ul{
     background: white;
 }
+
 html{
     background: rgb(94, 91, 91);
 }
