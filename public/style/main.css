@@ -29,7 +29,7 @@ div {
 }
 a:hover{
     background:white;
-    border: 4px solid white;
+    border: 10px solid #666;
     border-radius: 15px;
     text-shadow: 3px red;
 }
