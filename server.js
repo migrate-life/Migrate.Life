@@ -28,7 +28,6 @@ function Places(data) {
   this.longitude = data.coord.Lon;
   this.temp = data.main.temp;
 }
-Places.prototype.state = 'N/A';
 
 //Helper functions
 function helperFunction (request, response) {
