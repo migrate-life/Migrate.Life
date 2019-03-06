@@ -21,8 +21,6 @@ app.get('/', (request, response) => response.render('index'))
 
 app.get('/search/:region', helperFunction);
 
-// function Region() {
-// }
 
 function helperFunction (request, response) {
   let value = request.params.region;
@@ -48,6 +46,7 @@ function helperFunction (request, response) {
       response.render('pages/searches', {cities: placesIdk})
     })
     .catch(console.log('this is an error'))
+  getPrices();
 }
 
 //-------------------------------//
@@ -61,76 +60,35 @@ function Places(data) {
   this.temp = data.main.temp;
 }
 
-// function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-// }
+function Prices(data) {
+  this.milk = data.prices[8].average_price;
+  this.beer = data.prices[5].average_price;
+  this.gas = data.prices[21].average_price;
+  this.internet = data.prices[29].average_price;
+}
 
 // function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-// }
-
-// function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
+//     this. = data.;
+//     this. = data.;
+//     this. = data.;
+//     this. = data.;
 // }
 
 // function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
+//     this. = data.;
+//     this. = data.;
+//     this. = data.;
+//     this. = data.;
 // }
 
-// function whateverAPIwepick(query) {
-//   const SQL = `SELECT FROM`;
-//   const values = [query];
+function getPrices(city) {
+  const url = `https://www.numbeo.com/api/city_prices?${process.env.NUMBEO_API_KEY}&query=${city.name}`;
+  const prices = [];
 
-//   return clientInformation.query(SQL, values)
-//     .then(result => {
-//       if(result.rowCount > 0) {
-//         console.log('from SQL');
-//         return result.rows[0];
-//       } else {
-//         const url = `some feckin URL up in here`;
-
-//         return superagent.get(url)
-//           .then(data => {
-//             console.log()
-
-//             if (!data.body.results.length) { throw 'no Data'}
-
-//             else {
-//               let whateverWePick = new whateverAPIwepick(query, data.body.results[0]);
-//               console.log();
-
-//               let newSQL = `INSERT STUFF HERE FOR OUR NEW DB INFO;`;
-//               console.log()
-//               let newValues = Object.values(whateverwepick);
-//               console.log()
-
-//               return clientInformation.query(newSQL, newValues)
-//                 .then(result => {
-//                   console.log()
-//                   //Attaches the id of the new record of instance
-//                   // used to connect to other DBs
-//                   console.log()
-//                   whateverwepick.id = result.rows[0].id;
-//                   return whatwepciked;
-//                 })
-//             }
-//           })
-//           .catch(error => console.log('Error in SQL Call'));
-//       }
-//     })
-// }
-
+  superagent.get(url)
+    .then(data => {prices.push(new Prices(data))})
+    .catch(error => console.log(error))
+  return prices;
+}
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
