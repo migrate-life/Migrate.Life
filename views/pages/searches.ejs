@@ -18,8 +18,8 @@
               <ul id="city-list">
                 <% cities.forEach(city => { %>
                   <li class="city item" data-id="<%= city.id %>">
-                    <h4><%= city.name %></h4>
-                    <p><%= city.temp %></p>
+                    <h4>City Name: <%= city.name %></h4>
+                    <p>Temperature (C): <%= city.temp %></p>
                   </li>
                 <% }) %>
               </ul>
