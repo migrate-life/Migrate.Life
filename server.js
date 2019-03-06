@@ -89,6 +89,32 @@ function Places(data) {
 //     this.   = data.  ;
 // }
 
+function whateverAPIwepick(query) {
+  const SQL = `SELECT FROM`;
+  const values = [query];
+
+  return clientInformation.query(SQL, values)
+    .then(result => {
+      if(result.rowCount > 0) {
+        console.log('from SQL');
+        return result.rows[0];
+      } else {
+        const url = `some feckin URL up in here`;
+
+        return superagent.get(url)
+          .then(data => {
+            console.log()
+
+            if (!data.body.results.length) { throw 'no Data'}
+
+            else {
+              let whateverWePick = new whateverAPIwepick(query, data.body.results[0]);
+              console.log()
+            }
+          })
+      }
+    })
+}
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
