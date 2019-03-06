@@ -7,6 +7,11 @@ const superagent = require ('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000;
+
+// *** added ///
+var parseString = require('xml2js').parseString;
+
+
 require('dotenv').config();
 
 //express app creation
@@ -21,6 +26,9 @@ app.get('/', (request, response) => response.render('index'))
 
 
 app.get('/search/:region', helperFunction);
+
+// *** added ***
+// app.get('/zillow', getZillowData);
 
 // function Region() {
 // }
@@ -58,7 +66,21 @@ function Places(data) {
   this.temp = data.main.temp;
 }
 
+// function getZillowData (request, response) {
+
+//   let url = `https://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=${process.env.ZILLOW_API_KEY}&state=wa&city=seattle&childtype=neighborhood`
+
+//   superagent.get(url)
+//     .then(results => {
+//       console.log(results.text)
+//       parseString(results.text, {explicitRoot: false}, function (err, result) {
+//         // console.log(JSON.stringify(result));
+//         console.log(result.response[0].list[0].region[0].name[0])
+//         console.log(result.response[0].list[0].region[0].zindex[0]._)
+//       });
+//     })
+//     .catch(console.log('line 81 - this is an error'))
+// }
+
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-
