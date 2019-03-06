@@ -8,10 +8,6 @@ const pg = require('pg');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000;
 
-// *** added ///
-var parseString = require('xml2js').parseString;
-
-
 require('dotenv').config();
 
 //express app creation
@@ -27,12 +23,6 @@ app.get('/', (request, response) => response.render('index'))
 
 app.get('/search/:region', helperFunction);
 
-// *** added ***
-// app.get('/zillow', getZillowData);
-
-// function Region() {
-// }
-
 function helperFunction (request, response) {
   let value = request.params.region;
   if(value === 'north') {
@@ -47,16 +37,80 @@ function helperFunction (request, response) {
     response.render('pages/books/error')
   }
 
-  let url = `http://api.openweathermap.org/data/2.5/box/city?bbox=${regionBox.left},${regionBox.bottom},${regionBox.right},${regionBox.top},${regionBox.zoom}&APPID=${process.env.OPEN_WEATHER_API_KEY}`
+  function buildPlaces(){
+    let url = `http://api.openweathermap.org/data/2.5/box/city?bbox=${regionBox.left},${regionBox.bottom},${regionBox.right},${regionBox.top},${regionBox.zoom}&APPID=${process.env.OPEN_WEATHER_API_KEY}`
+    console.log('Line 42', url);
+    let placesIdk = [];
+    return superagent.get(url)
+      .then(results => {
+        placesIdk = results.body.list.map(data => (new Places(data)));
+        // console.log(placesIdk);
+        return placesIdk;
+      })
+      .catch(err => console.error(err));
+  }
 
-  let placesIdk = [];
+  function getStates(placesArray){
+    let placesWithStates = placesArray.map(item => {
+      let stateUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${item.name}&key=${process.env.GEOCODE_API_KEY}`;
 
-  superagent.get(url)
-    .then(results => {
-      results.body.list.forEach(data => placesIdk.push(new Places(data)))
-      response.render('pages/searches', {cities: placesIdk})
+      item.state = getState(stateUrl)
+        .then(results => {
+          // console.log('Line60',results)
+          return results;
+        })
+      console.log('line 62', item)
+      return item;
     })
-    .catch(console.log('this is an error'))
+    console.log('Line 63', placesWithStates);
+    return placesWithStates;
+  }
+
+  function getState(url){
+    return superagent.get(url)
+      .then(placeRes => {
+        let state = placeRes.body.results[0].address_components[placeRes.body.results[0].address_components.length - 2].long_name;
+        // console.log('Line 73', state);
+        return state;
+      })
+      .catch(() => console.log('this error sucks'));
+
+  }
+
+
+  buildPlaces()
+    .then(array => {
+      // console.log('line 72', array);
+      let array2 = getStates(array)
+      console.log(array2);
+    })
+
+
+  // superagent.get(url)
+  //   .then(results => {
+  //     results.body.list.forEach(data => placesIdk.push(new Places(data)));
+
+  // return placesIdk.map(item => {
+  //   let stateUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${item.name}&key=${process.env.GEOCODE_API_KEY}`;
+
+  //   item.state = superagent.get(stateUrl)
+  //     .then(placeRes => {
+  //       let state = placeRes.body.results[0].address_components[placeRes.body.results[0].address_components.length - 2].long_name;
+  //       console.log('Line 55', state);
+  //       return state;
+  //     })
+  //     .catch(() => console.log('this error sucks'));
+
+  //   console.log('Line 60', item.state);
+  //   return item;
+  // })
+  //     .then((array) => {
+  //       console.log('Line 66',array);
+  //       response.render('pages/searches', {cities: array})
+  //     })
+  //   // console.log('Line 62', array);
+  // })
+  // .catch(err => console.error(err))
 }
 
 //-------------------------------//
@@ -71,93 +125,4 @@ function Places(data) {
 }
 
 
-// function getZillowData (request, response) {
-
-//   let url = `https://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=${process.env.ZILLOW_API_KEY}&state=wa&city=seattle&childtype=neighborhood`
-
-//   superagent.get(url)
-//     .then(results => {
-//       console.log(results.text)
-//       parseString(results.text, {explicitRoot: false}, function (err, result) {
-//         // console.log(JSON.stringify(result));
-//         console.log(result.response[0].list[0].region[0].name[0])
-//         console.log(result.response[0].list[0].region[0].zindex[0]._)
-//       });
-//     })
-//     .catch(console.log('line 81 - this is an error'))
-
-// function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-// }
-
-// function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-// }
-
-// function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-// }
-
-// function preFab(data) {
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-//     this.   = data.  ;
-// }
-
-// function whateverAPIwepick(query) {
-//   const SQL = `SELECT FROM`;
-//   const values = [query];
-
-//   return clientInformation.query(SQL, values)
-//     .then(result => {
-//       if(result.rowCount > 0) {
-//         console.log('from SQL');
-//         return result.rows[0];
-//       } else {
-//         const url = `some feckin URL up in here`;
-
-//         return superagent.get(url)
-//           .then(data => {
-//             console.log()
-
-//             if (!data.body.results.length) { throw 'no Data'}
-
-//             else {
-//               let whateverWePick = new whateverAPIwepick(query, data.body.results[0]);
-//               console.log();
-
-//               let newSQL = `INSERT STUFF HERE FOR OUR NEW DB INFO;`;
-//               console.log()
-//               let newValues = Object.values(whateverwepick);
-//               console.log()
-
-//               return clientInformation.query(newSQL, newValues)
-//                 .then(result => {
-//                   console.log()
-//                   //Attaches the id of the new record of instance
-//                   // used to connect to other DBs
-//                   console.log()
-//                   whateverwepick.id = result.rows[0].id;
-//                   return whatwepciked;
-//                 })
-//             }
-//           })
-//           .catch(error => console.log('Error in SQL Call'));
-//       }
-//     })
-
-// }
-
-
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
->>>>>>> edc9c397d15c83d26ed9698f1f2cf7d516f8a1ab
