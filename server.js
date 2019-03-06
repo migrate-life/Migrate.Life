@@ -6,8 +6,11 @@ const express = require('express');
 const superagent = require ('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
-const PORT = process.env.PORT || 3000;
+const parseString = require('xml2js').parseString;
+
 require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+
 
 //express app creation
 const app = express();
@@ -18,12 +21,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 app.get('/', (request, response) => response.render('index'))
-
-
 app.get('/search/:region', helperFunction);
 
-// function Region() {
-// }
 
 function helperFunction (request, response) {
   let value = request.params.region;
@@ -57,6 +56,7 @@ function Places(data) {
   this.longitude = data.coord.Lon;
   this.temp = data.main.temp;
 }
+
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
