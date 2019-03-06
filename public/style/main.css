@@ -27,8 +27,17 @@ div {
     flex-grow: inherit;
     margin: 20px;
 }
+a:hover{
+    background:white;
+    border: 4px solid white;
+    border-radius: 15px;
+    text-shadow: 3px red;
+}
 a{
     color: white;
     font-size: 60px;
+}
+a:hover{
+    color: black;
 }
 
