@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+    <body>
+        <main>
+            <header>
+                <%- include('./partials/header') %>
+            </header>
+
+            <section>
+
+                <section class="saved-cities">
+                    <ul id="my-cities">
+                      <% cities.forEach(city => { %>
+                        <li class="city item" data-id="<%= city.id %>">
+                          <h4>City Name: <%= city.name %></h4>
+                          <p>Temperature (C): <%= city.temp %></p>
+                        </li>
+                      <% }) %>
+                    </ul>
+
+            </section>
+            <%- include('./partials/footer') %>
+        </main>
+    </body>
+</html>
