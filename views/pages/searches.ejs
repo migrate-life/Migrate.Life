@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%- include('../partials/head') %>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="/style/reset.css">
+      <link rel="stylesheet" href="/style/results.css">
+
     </head>
     <body>
         <main>
             <header>
-                <% include('../partials/header') %>
+                <%- include('../partials/header') %>
+                <a href="/" >home</a>
             </header>
             <section class="city-view">
               <ul id="city-list">
                 <% cities.forEach(city => { %>
                   <li class="city item" data-id="<%= city.id %>">
-                    <h4><%= city.name %></h4>
-                    <p><%= city.temp %></p>
+                    <h4>City Name: <%= city.name %></h4>
+                    <p>Temperature (C): <%= city.temp %></p>
                   </li>
                 <% }) %>
               </ul>

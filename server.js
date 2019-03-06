@@ -1,7 +1,6 @@
 'use strict';
 
 //App depends
-
 const express = require('express');
 const superagent = require ('superagent');
 const pg = require('pg');
@@ -59,12 +58,17 @@ function helperFunction (request, response) {
     .catch(console.log('this is an error'))
 }
 
+//-------------------------------//
+//-----CONSTRUCTOR FUNCTIONS-----//
+//-------------------------------//
+
 function Places(data) {
   this.name = data.name;
   this.latitude = data.coord.Lat;
   this.longitude = data.coord.Lon;
   this.temp = data.main.temp;
 }
+
 
 // function getZillowData (request, response) {
 
@@ -80,6 +84,77 @@ function Places(data) {
 //       });
 //     })
 //     .catch(console.log('line 81 - this is an error'))
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function whateverAPIwepick(query) {
+//   const SQL = `SELECT FROM`;
+//   const values = [query];
+
+//   return clientInformation.query(SQL, values)
+//     .then(result => {
+//       if(result.rowCount > 0) {
+//         console.log('from SQL');
+//         return result.rows[0];
+//       } else {
+//         const url = `some feckin URL up in here`;
+
+//         return superagent.get(url)
+//           .then(data => {
+//             console.log()
+
+//             if (!data.body.results.length) { throw 'no Data'}
+
+//             else {
+//               let whateverWePick = new whateverAPIwepick(query, data.body.results[0]);
+//               console.log();
+
+//               let newSQL = `INSERT STUFF HERE FOR OUR NEW DB INFO;`;
+//               console.log()
+//               let newValues = Object.values(whateverwepick);
+//               console.log()
+
+//               return clientInformation.query(newSQL, newValues)
+//                 .then(result => {
+//                   console.log()
+//                   //Attaches the id of the new record of instance
+//                   // used to connect to other DBs
+//                   console.log()
+//                   whateverwepick.id = result.rows[0].id;
+//                   return whatwepciked;
+//                 })
+//             }
+//           })
+//           .catch(error => console.log('Error in SQL Call'));
+//       }
+//     })
+
 // }
 
 

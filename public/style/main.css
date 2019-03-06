@@ -1,0 +1,43 @@
+*{
+    text-decoration: none;
+}
+body{
+    width: 960px;
+    background: black;
+    margin: auto;
+    
+
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+
+}
+
+div {
+    text-align: center;
+    width: 300px; 
+    height: 350px;
+    background: #333;
+    border-radius: 15px;
+    border: 3px solid white;
+    line-height: 350px;
+    flex-grow: inherit;
+    margin: 20px;
+}
+a:hover{
+    background:white;
+    border: 10px solid #666;
+    border-radius: 15px;
+    text-shadow: 3px red;
+}
+a{
+    color: white;
+    font-size: 60px;
+}
+a:hover{
+    color: black;
+}
+
