@@ -56,34 +56,33 @@ async function getCities(regionBox) {
 
 function priceUrl(city) {
   const url = `https://www.numbeo.com/api/city_prices?api_key=${process.env.NUMBEO_API_KEY}&query=${city.name}`;
-  console.log(url);
-  // https://www.numbeo.com/api/indices?api_key=e7qanb6e5sonic&query=Seattle
+  
   return superagent.get(url)
 }
 
-function getQuality(){
-
+function getQuality(city){
+  const url = `https://www.numbeo.com/api/indices?api_key=${process.env.NUMBEO_API_KEY}&query=${city.name}`
+  
+  return superagent.get(url)
 }
 
 function renderFunction(request, response) {
-  // let cities = [];
-  // let prices = [];
-  // let quality = [];
+  let cities = [];
+  let prices = [];
+  let quality = [];
 
   let region = getRegion(request.params.region);
-  console.log(region);
   getCities(region)
     .then(cities => {
       let getPrices = cities.map(city => new Promise((resolve,reject) => {
         resolve(priceUrl(city))
       }));
-      console.log('Line 79', getPrices);
+
       Promise.all(getPrices)
         .then(values => {
-          // console.log(values[0].body);
           values.forEach(data => {
-            // prices.push(new Prices(data.body))
-            console.log(data.body.prices[8].average_price);
+            prices.push(new Prices(data.body))
+            console.log(prices);
           });
         })
         .catch(error => console.log(error))
@@ -107,6 +106,12 @@ function Prices(data) {
   this.beer = data.prices[5].average_price;
   this.gas = data.prices[21].average_price;
   this.internet = data.prices[29].average_price;
+}
+
+function Quality(data){
+  this.health = data.health_care_index;
+  this.property = data.property_price_to_income_ration;
+  this.climate = data.climate_index;
 }
 
 
