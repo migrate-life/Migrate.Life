@@ -1,7 +1,6 @@
 'use strict';
 
 //App depends
-
 const express = require('express');
 const superagent = require ('superagent');
 const pg = require('pg');
@@ -51,6 +50,10 @@ function helperFunction (request, response) {
     .catch(console.log('this is an error'))
 }
 
+//-------------------------------//
+//-----CONSTRUCTOR FUNCTIONS-----//
+//-------------------------------//
+
 function Places(data) {
   this.name = data.name;
   this.latitude = data.coord.Lat;
@@ -58,7 +61,34 @@ function Places(data) {
   this.temp = data.main.temp;
 }
 
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+// function preFab(data) {
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+//     this.   = data.  ;
+// }
+
+
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-
