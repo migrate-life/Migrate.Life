@@ -89,32 +89,48 @@ function Places(data) {
 //     this.   = data.  ;
 // }
 
-function whateverAPIwepick(query) {
-  const SQL = `SELECT FROM`;
-  const values = [query];
+// function whateverAPIwepick(query) {
+//   const SQL = `SELECT FROM`;
+//   const values = [query];
 
-  return clientInformation.query(SQL, values)
-    .then(result => {
-      if(result.rowCount > 0) {
-        console.log('from SQL');
-        return result.rows[0];
-      } else {
-        const url = `some feckin URL up in here`;
+//   return clientInformation.query(SQL, values)
+//     .then(result => {
+//       if(result.rowCount > 0) {
+//         console.log('from SQL');
+//         return result.rows[0];
+//       } else {
+//         const url = `some feckin URL up in here`;
 
-        return superagent.get(url)
-          .then(data => {
-            console.log()
+//         return superagent.get(url)
+//           .then(data => {
+//             console.log()
 
-            if (!data.body.results.length) { throw 'no Data'}
+//             if (!data.body.results.length) { throw 'no Data'}
 
-            else {
-              let whateverWePick = new whateverAPIwepick(query, data.body.results[0]);
-              console.log()
-            }
-          })
-      }
-    })
-}
+//             else {
+//               let whateverWePick = new whateverAPIwepick(query, data.body.results[0]);
+//               console.log();
+
+//               let newSQL = `INSERT STUFF HERE FOR OUR NEW DB INFO;`;
+//               console.log()
+//               let newValues = Object.values(whateverwepick);
+//               console.log()
+
+//               return clientInformation.query(newSQL, newValues)
+//                 .then(result => {
+//                   console.log()
+//                   //Attaches the id of the new record of instance
+//                   // used to connect to other DBs
+//                   console.log()
+//                   whateverwepick.id = result.rows[0].id;
+//                   return whatwepciked;
+//                 })
+//             }
+//           })
+//           .catch(error => console.log('Error in SQL Call'));
+//       }
+//     })
+// }
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
