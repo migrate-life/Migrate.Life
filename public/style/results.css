@@ -10,9 +10,19 @@ header{
 *{
     outline:1px solid black;
     padding: 10px;
-    font-size: 25px;
+    font-size: 40px;
 }
 body{
     width: 960px;
     margin:auto;
+}
+li{
+    margin: 30px;
+}
+
+li h4{
+    background: rgb(177, 84, 84);
+}
+li p{
+    background: rgb(93, 93, 206);
 }
