@@ -8,7 +8,7 @@ header {
     height: 180px;
     line-height: 50px;
     margin-bottom: 100px;
-    border:5px white solid;
+    border:20px white double;
 }
 
 header h1 {
