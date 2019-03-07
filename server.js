@@ -74,30 +74,34 @@ function renderFunction(request, response) {
   getCities(region)
     .then(cities => {
       // console.log(cities);
-      let getPrices = cities.map(city => new Promise((resolve,reject) => {
-        resolve(priceUrl(city))
-      }));
-      let getQuality = cities.map(city => new Promise((resolve,reject) => {
-        resolve(qualityUrl(city))
-      }));
+      let getPrices = cities.map(city => priceUrl(city));
+      let getQuality = cities.map(city => qualityUrl(city));
 
       Promise.all(getPrices)
         .then(values => {
           values.forEach(data => {
             prices.push(new Prices(data.body))
           });
-          values.forEach(data => {
-            quality.push(new Quality(data.body))
-          });
-          let cityData = [];
-          for(let i = 0; i < cities.length; i++){
-            cityData.push(new CityData(cities[i],prices[i],quality[i]))
-          }
-          response.render('pages/searches', {cities:cityData})
+         
+          Promise.all(getQuality)
+          .then(value => {
+            value.forEach(data => {
+              quality.push(new Quality(data.body))
+            });
+            
+            let cityData = [];
+            for(let i = 0; i < cities.length; i++){
+              cityData.push(new CityData(cities[i],prices[i],quality[i]))
+            }
+            response.render('pages/searches', {cities:cityData})
+          })
+
         })
         .catch(error => console.log(error))
-    })
-    .then()
+
+      // .then(array => console.log('Line 97', array));
+      
+  })
 }
 
 
