@@ -25,6 +25,8 @@ app.get('/', (request, response) => response.render('index'))
 app.get('/search/:region', renderFunction);
 
 app.post('/add', saveToDb);
+app.get('/saved', displaySaved);
+app.get('/about', (request, response) => response.render('pages/about'));
 
 
 //Helper functions
@@ -131,12 +133,7 @@ function saveToDb(request, response) {
   values.splice(1, 1, foreignKey(values[1]));
   console.log('line 131', values)
   client.query(sql, values)
-
-  const cities = 'SELECT * FROM myCities;';
-  return client.query(cities)
-  .then(result => {
-    return response.render('pages/saved', {myCities:result.rows})
-  })
+  response.redirect('/saved');
 }
 
 function foreignKey(str) {
@@ -149,6 +146,16 @@ function foreignKey(str) {
   } else {
     return 4;
   }
+}
+
+function displaySaved(request, response) {
+
+
+  const cities = 'SELECT * FROM myCities;';
+  return client.query(cities)
+  .then(result => {
+  response.render('pages/saved', {myCities:result.rows})
+  })
 }
 
 //-------------------------------//
