@@ -63,3 +63,14 @@ footer{
     height: 100%;
     line-height: 60px;
 }
+#footerButton{
+    width: 15em;
+    background: rgb(245, 245, 245, 0.7);
+    border:maroon 4px solid;
+}
+#aboutLink{
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px maroon;
+    font-size: 30px;
+}
