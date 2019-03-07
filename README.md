@@ -1,13 +1,26 @@
 # Migrate.Life
 
->"Find where you flourish"
+**"Find where you flourish"**
 
-Do you want to live somewhere else? Are you unhappy with where you live? Welcome, this is the app for you!
- 
+##**Developers
+
+-Jon *"Big J"* Gentry
+-Ian *"Hype Man"* Gifford
+-Spencer *"Wild Card"* Hirata
+-Tanner *"SKNY-TannMann"* Percival
+
+##**About Migrate.Life
+
+Team SpearHead came up with the question "what if I am unhappy with where I live... But I do not know where to go?". That birthed our idea of a place picker, a migration application. Pick a general geographical location, a list of the nearest cities populates with the overview of each city, a quick summary of the places that match *your* criteria. Welcome to Migrate.Life.
+
+###**Problem Domain
+
+-Do you want to live somewhere else? Are you unhappy with where you live? You pick anywhere on our map, a list of cities will populate for you based on that selection. After, you will be able to refine your selections further by our filters to customize where your final locations to pick from will be. Upon final filtering, you will be able to save/compare/delete your choices until you reach your final decision. All thats left is for you to find that one place that fits you. Our application uses the latest and up to date APIs for the information that you need to "find where you flourish".
 
 
 
-##USER STORIES
+
+##**USER STORIES
 
 -As a User, I want a streamlined site that is easy to understand and obvious to navigate without prompts.
 
@@ -19,7 +32,7 @@ Do you want to live somewhere else? Are you unhappy with where you live? Welcome
 
 -As a User, when looking through my saved options, I would like to be able to compare them.
 
- ##DEV STORIES
+ ##**DEV STORIES
 
 -As a Developer, I want my application to be complete to meet my MVP.
 
