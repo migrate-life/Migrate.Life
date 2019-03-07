@@ -60,7 +60,7 @@ function priceUrl(city) {
   return superagent.get(url)
 }
 
-function getQuality(city){
+function qualityUrl(city){
   const url = `https://www.numbeo.com/api/indices?api_key=${process.env.NUMBEO_API_KEY}&query=${city.name}`
   
   return superagent.get(url)
@@ -74,16 +74,23 @@ function renderFunction(request, response) {
   let region = getRegion(request.params.region);
   getCities(region)
     .then(cities => {
+      console.log(cities);
       let getPrices = cities.map(city => new Promise((resolve,reject) => {
         resolve(priceUrl(city))
+      }));
+      let getQuality = cities.map(city => new Promise((resolve,reject) => {
+        resolve(qualityUrl(city))
       }));
 
       Promise.all(getPrices)
         .then(values => {
           values.forEach(data => {
             prices.push(new Prices(data.body))
-            console.log(prices);
           });
+          values.forEach(data => {
+            quality.push(new Quality(data.body))
+          });
+          console.log(prices,quality)
         })
         .catch(error => console.log(error))
     })
