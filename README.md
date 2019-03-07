@@ -66,9 +66,10 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 
 ### API Endpoints and Call Sample ###
 
-Example call:
+- Example call:
 /api/indices?api_key=your_api_key&query=Belgrade
-Example response:
+
+- Example response:
 {
    "health_care_index":50.06172839506173,
    "crime_index":38.21801747014595,
@@ -87,10 +88,13 @@ Example response:
    "restaurant_price_index":45.41139043722476,
    "traffic_inefficiency_index":63.001434294260044,
    "property_price_to_income_ratio":19.047619047619047
-}```
-Example call:
+}
+
+
+- Example call:
 /api/city_prices?api_key=your_api_key&query=Belgrade
-Example response:
+
+- Example response:
 {
   "monthLastUpdate":4,
   "contributors":91,
