@@ -15,7 +15,7 @@ header {
     background: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
-    height: 60px;
+    height: 100px;
     line-height: 40px;
     margin-bottom: 100px;
 }
@@ -28,13 +28,14 @@ h1 {
 }
 
 h2 {
-    margin-top: -50px;
+    
     font-family: 'La Belle Aurore', cursive;
     font-size: 22px;
     text-align: left;
     padding-right: 14px;
     padding-top: 12px;
     margin-left: 180px;
+    
 }
 
 section {
