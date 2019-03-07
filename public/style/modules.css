@@ -22,6 +22,7 @@
     border: 10px solid black;
     border-radius: 15px;
     text-shadow: 3px red;
+    transition-duration: 350ms;
     
 }
 
@@ -32,6 +33,7 @@
 
 .allDirections:hover {
     color: black;
+    transition-duration: 350ms;
 }
 
 #aboutLink{
@@ -40,5 +42,5 @@
     font-size: 20px;
 }
 #north, #south, #east, #west{
-    background-image: linear-gradient(-90deg, black, maroon, black);
+    background-image: linear-gradient(-90deg, rgb(0, 0, 0, 0.7), rgb(128, 0, 0, 0.7), rgb(0, 0, 0, 0.7));
 }

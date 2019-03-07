@@ -18,17 +18,20 @@
               <ul id="city-list">
                 <% cities.forEach(city => { %>
                   <li class="city item" data-id="<%= city.id %>">
-                    <h4>City Name: <%= city.name %></h4>
-                    <p>Temp: <%= city.temp %>&#8457;</p>
-                    <p>Pint of Beer: $<%= city.beer %></p>
-                    <p>Milk $<%= city.milk %> per gallon</p>
-                    <p>Gallon of Gas: $<%= city.gas %></p>
-                    <p>Internet (60mbps or More): $<%= city.internet %></p>
-                    <p>Health Index: <%= city.health %></p>
-                    <p>Property Index: <%= city.property %></p>
-                    <p>Climate Index: <%= city.climate %></p>
+                    <h4>City Name: <b><%= city.name %></b></h4>
+                    <p><b>Temp</b>: <%= city.temp %>&#8457;</p>
+                    <p><b>Pint</b> of Beer: $<%= city.beer %></p>
+                    <p><b>Milk</b> $<%= city.milk %> per gallon</p>
+                    <p><b>Gallon</b> of Gas: $<%= city.gas %></p>
+                    <p><b>Internet</b> (60mbps or More): $<%= city.internet %></p>
+                    <p><b>Health</b> Index: <%= city.health %></p>
+                    <p><b>Property</b> Index: <%= city.property %></p>
+                    <p><b>Climate</b> Index: <%= city.climate %></p>
                   </li>
+                  <li id= "buttonListItem">
+                  <button id= "saveButton" href="#">Save City</button></li>
                 <% }) %>
+                
               </ul>
             </section>
             
