@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS temps (
 CREATE TABLE IF NOT EXISTS myCities (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  latitude NUMERIC(8,6),
-  longitude NUMERIC(9,6),
-  temp INTEGER, 
+  latitude VARCHAR(255),
+  longitude VARCHAR(255),
+  temp VARCHAR(255), 
   health VARCHAR(255),
   property VARCHAR(255),
   climate VARCHAR(255),
