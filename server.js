@@ -131,8 +131,12 @@ function saveToDb(request, response) {
   values.splice(1, 1, foreignKey(values[1]));
   console.log('line 131', values)
   client.query(sql, values)
-    .then(response.redirect('/'))
-    .catch(error => console.log(error))
+
+  const cities = 'SELECT * FROM myCities;';
+  return client.query(cities)
+  .then(result => {
+    return response.render('pages/saved', {myCities:result.rows})
+  })
 }
 
 function foreignKey(str) {
