@@ -17,7 +17,22 @@ Team **Migrate.Life** came up with the question "what if I am unhappy with where
 
 Do you want to live somewhere else? Are you unhappy with where you live? You pick anywhere on our map, a list of cities will populate for you based on that selection. After, you will be able to refine your selections further by our filters to customize where your final locations to pick from will be. Upon final filtering, you will be able to save/compare/delete your choices until you reach your final decision. All thats left is for you to find that one place that fits you. Our application uses the latest and up to date APIs for the information that you need to "find where you flourish".
 
+## Libraries/NPM's/API's
+- Libraries/NPM's
+- [x] Express
 
+- [x] CORS
+
+- [x] Superagent
+
+- [x] PG
+
+- [x] Method-Override
+
+- API's
+- [x] Open Weather (https://openweathermap.org/current)
+
+- [x] Numbeo (https://www.numbeo.com)
 
 
 ### USER STORIES ###
