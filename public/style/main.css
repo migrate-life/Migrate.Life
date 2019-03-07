@@ -14,8 +14,8 @@ body {
 header {
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    text-align: left;
-    height: 60px;
+    text-align: center;
+    height: 100px;
     line-height: 40px;
     margin-bottom: 100px;
 }
@@ -28,13 +28,14 @@ h1 {
 }
 
 h2 {
-    margin-top: -50px;
+    
     font-family: 'La Belle Aurore', cursive;
     font-size: 22px;
     text-align: left;
     padding-right: 14px;
     padding-top: 12px;
     margin-left: 180px;
+    
 }
 
 section {
@@ -45,40 +46,23 @@ section {
 
 div {
     text-align: center;
-    width: 280px; 
+    width: 280em; 
     height: 180px;
     background: rgba(0, 0, 0, 0.7);
-    border-radius: 4px;
-    /* box-shadow: 2px 3px rgba(255, 255, 255, 0.4); */
+    border-radius: 14px;
+    box-shadow: 2px 3px white;
     line-height: 160px;
     flex-grow: inherit;
     margin: 30px;
     font-family: 'Montserrat', sans-serif;
     text-shadow: 1px 1px rgba(4, 250, 250, 0.5);
+    
 }
 
-a:hover {
-    background:white;
-    border: 10px solid #666;
-    border-radius: 15px;
-    text-shadow: 3px red;
-}
-
-a {
+footer{
+    background: rgba(0, 0, 0, 0.8);
     color: white;
-    font-size: 60px;
+    text-align: center;
+    height: 100%;
+    line-height: 60px;
 }
-
-a:hover {
-    color: black;
-}
-
-#myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    z-index: -1;
-    object-fit: cover;
-  }
