@@ -64,7 +64,7 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 
 - As a Developer, I want accurate information from my APIs such as temperature/population density, local economy/cost of living.
 
-### API Endpoints and Call Sample ###
+### API Endpoints and Call/Response Sample ###
 
 - Example call:
 /api/indices?api_key=your_api_key&query=Belgrade
