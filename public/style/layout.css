@@ -1,3 +1,10 @@
 h1 {
   font-family: 'Montserrat', sans-serif;
 }
+
+@media (min-width: 960px){
+  main{
+    width:960px;
+    margin:auto;
+  }
+}
