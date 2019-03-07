@@ -22,6 +22,7 @@
     border: 10px solid black;
     border-radius: 15px;
     text-shadow: 3px red;
+    transition-duration: 350ms;
     
 }
 
@@ -32,6 +33,7 @@
 
 .allDirections:hover {
     color: black;
+    transition-duration: 350ms;
 }
 
 #aboutLink{

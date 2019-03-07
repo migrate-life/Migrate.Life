@@ -40,6 +40,7 @@ header h2 {
     color:white;
     background: black;
     border: 2px solid white;
+    transition-duration: 350ms;
 }
 body{
     width: 960px;
@@ -108,9 +109,11 @@ b{
     border: 5px solid black;
     background-image: linear-gradient(white, #666);
     text-decoration: underline;
+    transition-duration: 350ms;
 }
 #saveButton:active{
     background-image: linear-gradient(#666, black);
     color:white;
     text-decoration: underline;
+
 }
