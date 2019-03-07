@@ -62,12 +62,12 @@ footer{
     height: 100%;
     line-height: 60px;
 }
-#footerButton{
-    width: 15em;
+.footerButton{
+    width: 20em;
     background: rgb(245, 245, 245, 0.7);
-    border:maroon 4px solid;
+    border:maroon 6px solid;
 }
-#aboutLink{
+.aboutLink{
     text-decoration: none;
     color: white;
     text-shadow: 2px 2px maroon;
