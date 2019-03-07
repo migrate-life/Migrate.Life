@@ -4,10 +4,13 @@
 
 ## Developers ##
 
-- Jon *"Big J"* Gentry
-- Ian *"Hype Man"* Gifford
-- Spencer *"Wild Card"* Hirata
-- Tanner *"SKNY-TannMann"* Percival
+- Jon *"Big J"* Gentry (https://github.com/jong9000)
+
+- Ian *"Hype Man"* Gifford (https://github.com/IanGifford261)
+
+- Spencer *"Wild Card"* Hirata (https://github.com/shiratap)
+
+- Tanner *"SKNY-TannMann"* Percival (https://github.com/Tanner253)
 
 ## About Migrate.Life ##
 
