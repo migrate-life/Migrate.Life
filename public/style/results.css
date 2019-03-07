@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore|Montserrat:600');
 
 header {
-    background-image: linear-gradient(-90deg, black, maroon, black);
+    background-image: linear-gradient(-90deg, black, maroon, black,);
     color: white;
     text-align: center;
-    height: 100px;
-    line-height: 40px;
+    height: 180px;
+    line-height: 50px;
     margin-bottom: 100px;
+    border:5px white solid;
 }
 
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
-    padding-left: 20px;
     padding-top: 10px;
 }
 
@@ -21,15 +21,14 @@ header h2 {
     text-align: center;
     font-family: 'La Belle Aurore', cursive;
     font-size: 22px;
-    padding-top: 12px;
+    padding-top: 5px;
 }
 
 *{
-    font-size: 40px;
     text-decoration: none;
 }
 
-a{
+#home{
     font-size: 45px;
     color:black;
     background: white;
@@ -37,7 +36,7 @@ a{
     border: solid white 1px;
 
 }
-a:hover{
+#home:hover{
     color:white;
     background: black;
     border: 2px solid white;
@@ -64,10 +63,33 @@ li p{
     padding:10px;
 }
 ul{
+    border: 20px double black;
+    font-size: 35px;
     padding-top:20px;
     background:white;
 }
 
 body{
     background-image: linear-gradient(-90deg, maroon, black, maroon);
+}
+ 
+@media (max-width: 960px){
+    body{
+        width:960px;
+    }
+}
+footer{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    height: 100%;
+    line-height: 60px;
+}
+#aboutLink{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+b{
+    font-weight: bolder;
 }
