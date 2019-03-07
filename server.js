@@ -28,11 +28,11 @@ function getRegion(coord){
   if(coord === 'north') {
     return {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'5'}
   } else if(coord === 'east') {
-    return {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'3'}
+    return {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'5'}
   } else if(coord === 'west') {
-    return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'3'}
+    return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'5'}
   } else if(coord === 'south') {
-    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'3'}
+    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'4'}
   }else{
     return false;
   }
@@ -66,6 +66,19 @@ function qualityUrl(city){
   return superagent.get(url)
 }
 
+function rangeIdentifier(obj) {
+  console.log(obj);
+  if(parseInt(obj.temp) >= 85){
+    return 'Hot';
+  } else if(parseInt(obj.temp) >= 65){
+    return 'Warm';
+  } else if (parseInt(obj.temp) >= 40){
+    return 'Cool';
+  } else {
+    return 'Cold';
+  }
+}
+
 function renderFunction(request, response) {
   let prices = [];
   let quality = [];
@@ -90,8 +103,10 @@ function renderFunction(request, response) {
             });
             
             let cityData = [];
+            let climateData = [];
+            cities.forEach(cityData => climateData.push(rangeIdentifier(cityData)))
             for(let i = 0; i < cities.length; i++){
-              cityData.push(new CityData(cities[i],prices[i],quality[i]))
+              cityData.push(new CityData(cities[i],prices[i],quality[i],climateData[i]))
             }
             response.render('pages/searches', {cities:cityData})
           })
@@ -113,7 +128,7 @@ function Places(data) {
   this.name = data.name;
   this.latitude = data.coord.Lat;
   this.longitude = data.coord.Lon;
-  this.temp = data.main.temp;
+  this.temp = data.main.temp ? (data.main.temp*(9/5)+32) : 'n-a';
 }
 
 function Prices(data) {
@@ -129,11 +144,11 @@ function Quality(data){
   this.climate = data.climate_index.toFixed(1);
 }
 
-function CityData(place, price, quality){
+function CityData(place, price, quality, climateRange){
   this.name = place.name;
   this.latitude = place.latitude;
   this.longitude = place.longitude;
-  this.temp = (place.temp/(9/5) +32).toFixed();
+  this.temp = place.temp;
 
   this.milk = (price.milk * 3.7854).toFixed(2);
   this.beer = (price.beer * 2.113).toFixed(2);
@@ -143,6 +158,8 @@ function CityData(place, price, quality){
   this.health = quality.health;
   this.property = quality.property;
   this.climate = quality.climate;
+  this.climateRange = climateRange;
+
 }
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
