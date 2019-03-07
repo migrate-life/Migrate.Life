@@ -13,6 +13,7 @@
 - Tanner *"SKNY-TannMann"* Percival (https://github.com/Tanner253)
 
 ## About Migrate.Life ##
+### Version 1.0.8 ###
 
 Team **Migrate.Life** came up with the question "what if I am unhappy with where I live... But I do not know where to go?". That birthed our idea of a place picker, a migration application. Pick a general geographical location, a list of the nearest cities populates with the overview of each city, a quick summary of the places that match *your* criteria. Welcome to **Migrate.Life**.
 
@@ -32,10 +33,13 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 
 - [x] Method-Override
 
+- [x] EJS
+
 - API's
 - [x] Open Weather (https://openweathermap.org/current)
 
 - [x] Numbeo (https://www.numbeo.com)
+
 
 
 ### USER STORIES ###
@@ -60,5 +64,77 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 
 - As a Developer, I want accurate information from my APIs such as temperature/population density, local economy/cost of living.
 
+### API Endpoints and Call/Response Sample ###
+
+- Example call:
+/api/indices?api_key=your_api_key&query=Belgrade
+
+- Example response:
+{
+   "health_care_index":50.06172839506173,
+   "crime_index":38.21801747014595,
+   "traffic_time_index":26.666666666666664,
+   "purchasing_power_incl_rent_index":40.12168845492055,
+   "cpi_index":54.03955667194646,
+   "pollution_index":57.01433623847417,
+   "traffic_index":66.73884343652705,
+   "quality_of_life_index":57.23822054840707,
+   "cpi_and_rent_index":35.19777836239038,
+   "groceries_index":42.26947260306218,
+   "safety_index":61.78198252985405,
+   "name":"Belgrade, Serbia",
+   "rent_index":14.941072506714569,
+   "traffic_co2_index":707.361111111111,
+   "restaurant_price_index":45.41139043722476,
+   "traffic_inefficiency_index":63.001434294260044,
+   "property_price_to_income_ratio":19.047619047619047
+}
+
+
+- Example call:
+/api/city_prices?api_key=your_api_key&query=Belgrade
+
+- Example response:
+{
+  "monthLastUpdate":4,
+  "contributors":91,
+  "name":"Belgrade, Serbia",
+  "prices":[
+     {
+        "average_price":5.443478260869566,
+        "item_name":"Meal, Inexpensive Restaurant, Restaurants",
+        "highest_price":7,
+        "item_id":1,
+        "lowest_price":4,
+        "data_points": 50
+     },
+     {
+        "average_price":1.8523809523809522,
+        "item_name":"Imported Beer (0.33 liter bottle), Restaurants",
+        "highest_price":2.3,
+        "item_id":5,
+        "lowest_price":1.5,
+        "data_points": 40
+     },
+     {
+        "average_price":0.3611111111111111,
+        "item_name":"Lettuce (1 head), Markets",
+        "highest_price":0.5,
+        "item_id":113,
+        "lowest_price":0.25,
+        "data_points": 27
+     },
+     {
+        "average_price":1.3,
+        "item_name":"Cappuccino (regular), Restaurants",
+        "highest_price":1.5,
+        "item_id":114,
+        "lowest_price":1.2,
+        "data_points": 20
+     }
+  ],
+  "yearLastUpdate":2012,
+  "currency":"EUR"
+}
 
 resolution : 15 min walks, and facilitating conversation by another partner  
