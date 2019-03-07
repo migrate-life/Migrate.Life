@@ -12,7 +12,8 @@ body {
 }
 
 header {
-    background: rgba(0, 0, 0, 0.8);
+    
+    background-image: linear-gradient(-90deg, black, maroon, black);
     color: white;
     text-align: center;
     height: 100px;
@@ -20,22 +21,18 @@ header {
     margin-bottom: 100px;
 }
 
-h1 {
+header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     padding-left: 20px;
     padding-top: 10px;
 }
 
-h2 {
-    
+header h2 {
+    text-align: center;
     font-family: 'La Belle Aurore', cursive;
     font-size: 22px;
-    text-align: left;
-    padding-right: 14px;
     padding-top: 12px;
-    margin-left: 180px;
-    
 }
 
 section {
