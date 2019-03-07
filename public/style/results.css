@@ -32,8 +32,11 @@ header h2 {
     font-size: 45px;
     color:black;
     background: white;
-    border-radius: 15px;
+    border-radius: 5px;
     border: solid white 1px;
+    box-shadow: 10px 10px 5px grey;
+    width: 80px;
+    height:40px;
 
 }
 #home:hover{
@@ -50,7 +53,7 @@ body{
 li{
     margin: 30px;
     border: 25px outset maroon;
-
+    box-shadow: 10px 10px 5px grey;
 }
 
 li h4{
@@ -95,7 +98,7 @@ footer{
     text-decoration: none;
     color: white;
     text-shadow: 2px 2px maroon;
-    font-size: 30px;
+    font-size: 18px;
 }
 b{
     font-weight: bolder;
@@ -107,9 +110,10 @@ b{
 }
 #saveButton:hover{
     border: 5px solid black;
+    transition-duration: 550ms;
     background-image: linear-gradient(white, #666);
     text-decoration: underline;
-    transition-duration: 350ms;
+    
 }
 #saveButton:active{
     background-image: linear-gradient(#666, black);
