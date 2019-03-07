@@ -8,7 +8,7 @@ Do you want to live somewhere else? Are you unhappy with where you live? Welcome
 
 
 
-** USER STORIES
+##USER STORIES
 As a User, I want a streamlined site that is easy to understand and obvious to navigate without prompts.
 
 As a User, I want the ability to search for a "new" location to live, so that I can discover a better environment for myself.
@@ -19,8 +19,8 @@ As a User, when looking through my options, I want to be able to save my options
 
 As a User, when looking through my saved options, I would like to be able to compare them.
 
- ** DEV STORIES
- 
+ ##DEV STORIES
+
 As a Developer, I want my application to be complete to meet my MVP.
 
 As a Developer, I want my users to be able to navigate my application with a simple clean look and a presentable interface.
