@@ -17,7 +17,7 @@
             <section class="city-view">
               <ul id="city-list">
                 <% cities.forEach(city => { %>
-                  <li class="city item" data-id="<%= city.id %>">
+                  <li class="city-item" data-id="<%= city.id %>">
 
                     <h4>City Name: <%= city.name %></h4>
                     <p>Temp: <%= city.climateRange %></p>
@@ -30,7 +30,24 @@
                     <p>Climate Index: <%= city.climate %></p>
                   </li>
                   <li id= "buttonListItem">
-                  <button id= "saveButton" href="#">Save City</button></li>
+                    <form class="create-form" action="/add" method="post">
+                      <fieldset>
+                        <input type="hidden" name="name" value="<%= city.name %>" />
+                        <input type="hidden" name="climateRange" value="<%= city.climateRange %>" />
+                        <input type="hidden" name="beer" value="<%= city.beer %>" />
+                        <input type="hidden" name="milk" value="<%= city.milk %>" />
+                        <input type="hidden" name="gas" value="<%= city.gas %>" />
+                        <input type="hidden" name="internet" value="<%= city.internet %>" />
+                        <input type="hidden" name="health" value="<%= city.health %>" />
+                        <input type="hidden" name="property" value="<%= city.property %>" />
+                        <input type="hidden" name="climate" value="<%= city.climate %>" />
+                        <input type="hidden" name="lat" value="<%= city.latitude %>" />
+                        <input type="hidden" name="long" value="<%= city.longitude %>" />
+                        <input type="hidden" name="temp" value="<%= city.temp %>" />
+                        <button id= "saveButton" type="submit">Save City</button>
+                      </fieldset>
+                  </form>
+                </li>
                 <% }) %>
                 
               </ul>

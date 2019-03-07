@@ -12,27 +12,32 @@ require('dotenv').config();
 const app = express();
 app.use(express.urlencoded({extended:true}));
 
+// PG instantiation
+const client = new pg.Client(process.env.DATABASE_URL)
+client.connect();
+client.on('error', err => console.error(err));
+
 //EJS declaration
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 app.get('/', (request, response) => response.render('index'))
-
-
 app.get('/search/:region', renderFunction);
+
+app.post('/add', saveToDb);
 
 
 //Helper functions
 
 function getRegion(coord){
   if(coord === 'north') {
-    return {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'5'}
+    return {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'3'}
   } else if(coord === 'east') {
-    return {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'5'}
+    return {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'3'}
   } else if(coord === 'west') {
-    return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'5'}
+    return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'3'}
   } else if(coord === 'south') {
-    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'4'}
+    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'3'}
   }else{
     return false;
   }
@@ -119,6 +124,28 @@ function renderFunction(request, response) {
   })
 }
 
+function saveToDb(request, response) {
+  const sql = 'INSERT INTO myCities (name, temps_id, beer, milk, gas, internet, health, property, climate, latitude, longitude, temp) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);';
+  const values = Object.values(request.body);
+
+  values.splice(1, 1, foreignKey(values[1]));
+  console.log('line 131', values)
+  client.query(sql, values)
+    .then(response.redirect('/'))
+    .catch(error => console.log(error))
+}
+
+function foreignKey(str) {
+  if (str === 'Hot'){
+    return 1;
+  } else if (str === 'Warm'){
+    return 2;
+  } else if (str === 'Cool'){
+    return 3;
+  } else {
+    return 4;
+  }
+}
 
 //-------------------------------//
 //-----CONSTRUCTOR FUNCTIONS-----//
