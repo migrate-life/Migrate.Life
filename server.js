@@ -67,14 +67,13 @@ function qualityUrl(city){
 }
 
 function renderFunction(request, response) {
-  let cities = [];
   let prices = [];
   let quality = [];
 
   let region = getRegion(request.params.region);
   getCities(region)
     .then(cities => {
-      console.log(cities);
+      // console.log(cities);
       let getPrices = cities.map(city => new Promise((resolve,reject) => {
         resolve(priceUrl(city))
       }));
@@ -90,10 +89,15 @@ function renderFunction(request, response) {
           values.forEach(data => {
             quality.push(new Quality(data.body))
           });
-          console.log(prices,quality)
+          let cityData = [];
+          for(let i = 0; i < cities.length; i++){
+            cityData.push(new CityData(cities[i],prices[i],quality[i]))
+          }
+          response.render('pages/searches', {cities:cityData})
         })
         .catch(error => console.log(error))
     })
+    .then()
 }
 
 
@@ -109,10 +113,10 @@ function Places(data) {
 }
 
 function Prices(data) {
-  this.milk = data.prices[8].average_price;
-  this.beer = data.prices[5].average_price;
-  this.gas = data.prices[21].average_price;
-  this.internet = data.prices[29].average_price;
+  this.milk = data.prices[7].average_price;
+  this.beer = data.prices[13].average_price;
+  this.gas = data.prices[19].average_price;
+  this.internet = data.prices[27].average_price;
 }
 
 function Quality(data){
@@ -121,5 +125,20 @@ function Quality(data){
   this.climate = data.climate_index;
 }
 
+function CityData(place, price, quality){
+  this.name = place.name;
+  this.latitude = place.latitude;
+  this.longitude = place.longitude;
+  this.temp = place.temp;
+
+  this.milk = price.milk;
+  this.beer = price.beer;
+  this.gas = price.gas;
+  this.internet = price.internet;
+
+  this.health = quality.health;
+  this.property = quality.property;
+  this.climate = quality.climate;
+}
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
