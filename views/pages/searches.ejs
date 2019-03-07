@@ -18,6 +18,7 @@
               <ul id="city-list">
                 <% cities.forEach(city => { %>
                   <li class="city item" data-id="<%= city.id %>">
+
                     <h4>City Name: <%= city.name %></h4>
                     <p>Temp: <%= city.climateRange %></p>
                     <p>Pint of Beer: $<%= city.beer %></p>
@@ -28,7 +29,10 @@
                     <p>Property Index: <%= city.property %></p>
                     <p>Climate Index: <%= city.climate %></p>
                   </li>
+                  <li id= "buttonListItem">
+                  <button id= "saveButton" href="#">Save City</button></li>
                 <% }) %>
+                
               </ul>
             </section>
             
