@@ -12,13 +12,13 @@
         <main>
             <header>
                 <%- include('../partials/header') %>
-                <a href="/" >home</a>
+                <a id="home" href="/" >home</a>
             </header>
             <section class="city-view">
               <ul id="city-list">
                 <% cities.forEach(city => { %>
                   <li class="city item" data-id="<%= city.id %>">
-                    <h4>City Name: <%= city.name %></h4>
+                    <h4><b>City Name: <%= city.name %></b></h4>
                     <p>Temperature (C): <%= city.temp %></p>
                   </li>
                 <% }) %>
@@ -28,7 +28,9 @@
             
             <section>
             </section>
+            <footer>
             <%- include('../partials/footer') %>
+          </footer>
         </main>
     </body>
 </html>
