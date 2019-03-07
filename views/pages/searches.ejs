@@ -19,7 +19,14 @@
                 <% cities.forEach(city => { %>
                   <li class="city item" data-id="<%= city.id %>">
                     <h4>City Name: <%= city.name %></h4>
-                    <p>Temperature (C): <%= city.temp %></p>
+                    <p>Temp: <%= city.temp %>&#8457;</p>
+                    <p>Pint of Beer $<%= city.beer %></p>
+                    <p>Milk $<%= city.milk %> per gallon</p>
+                    <p>Gallon of Gas $<%= city.gas %></p>
+                    <p>Internet (60mbps or More) $<%= city.internet %></p>
+                    <p>Health Index <%= city.health %></p>
+                    <p>Property Index <%= city.property %></p>
+                    <p>Climate Index <%= city.climate %></p>
                   </li>
                 <% }) %>
               </ul>

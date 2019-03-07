@@ -124,21 +124,21 @@ function Prices(data) {
 }
 
 function Quality(data){
-  this.health = data.health_care_index;
-  this.property = data.property_price_to_income_ration;
-  this.climate = data.climate_index;
+  this.health = data.health_care_index.toFixed(1);
+  this.property = data.property_price_to_income_ratio.toFixed(1);
+  this.climate = data.climate_index.toFixed(1);
 }
 
 function CityData(place, price, quality){
   this.name = place.name;
   this.latitude = place.latitude;
   this.longitude = place.longitude;
-  this.temp = place.temp;
+  this.temp = (place.temp/(9/5) +32).toFixed();
 
-  this.milk = price.milk;
-  this.beer = price.beer;
-  this.gas = price.gas;
-  this.internet = price.internet;
+  this.milk = (price.milk * 3.7854).toFixed(2);
+  this.beer = (price.beer * 2.113).toFixed(2);
+  this.gas = (price.gas * 3.785).toFixed(2);;
+  this.internet = price.internet.toFixed(2);;
 
   this.health = quality.health;
   this.property = quality.property;
