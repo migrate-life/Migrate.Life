@@ -18,6 +18,14 @@ client.connect();
 client.on('error', err => console.error(err));
 
 //EJS declaration
+app.use(methodOverride((request,response) =>{
+  if(request.body && typeof request.body === 'object' && '_method' in request.body){
+    let method = request.body._method;
+    delete request.body.method;
+    return method;
+  }
+}))
+
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
@@ -27,6 +35,7 @@ app.get('/search/:region', renderFunction);
 app.post('/add', saveToDb);
 app.get('/saved', displaySaved);
 app.get('/about', (request, response) => response.render('pages/about'));
+app.get('/delete/:id', deleteFromDB);
 
 
 //Helper functions
@@ -86,7 +95,7 @@ function rangeIdentifier(obj) {
   }
 }
 
-function renderFunction(request, response) {
+function renderFunction(request, response) { 
   let prices = [];
   let quality = [];
 
@@ -97,6 +106,7 @@ function renderFunction(request, response) {
       let getPrices = cities.map(city => priceUrl(city));
       let getQuality = cities.map(city => qualityUrl(city));
 
+      //"This is gross" ~401JS Instructor
       Promise.all(getPrices)
         .then(values => {
           values.forEach(data => {
@@ -149,8 +159,6 @@ function foreignKey(str) {
 }
 
 function displaySaved(request, response) {
-
-
   const cities = 'SELECT * FROM myCities;';
   return client.query(cities)
   .then(result => {
@@ -158,9 +166,14 @@ function displaySaved(request, response) {
   })
 }
 
-//-------------------------------//
-//-----CONSTRUCTOR FUNCTIONS-----//
-//-------------------------------//
+function deleteFromDB(request, response){
+  let sql = 'DELETE FROM myCities WHERE id=$1;';
+  let values = [request.params.id];
+  client.query(sql, values)
+  response.redirect('/saved');
+}
+
+//Constructor functions
 
 function Places(data) {
   this.name = data.name;
@@ -199,5 +212,6 @@ function CityData(place, price, quality, climateRange){
   this.climateRange = climateRange;
 
 }
+
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
