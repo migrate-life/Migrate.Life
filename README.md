@@ -35,12 +35,26 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 
 - [x] EJS
 
+- [x] Nodemon
+
+- [x] Dotenv
+
 - API's
 - [x] Open Weather (https://openweathermap.org/current)
 
 - [x] Numbeo (https://www.numbeo.com)
 
+### How to set up locally ###
 
+- Clone the repository onto your machine
+   - Once Repo is cloned and set up within VS Code, you have to npm initialize for your package.json/package-lock, as well as install all required dependencies (express, CORS, Superagent, PG, Method-Override, EJS, dotenv) 
+
+   - Once all dependencies are installed and verified to be in your package.json and any other npm modules are up to date, you may begin to set prepare the application for a local deployment. You need to create a .env file and declare your PORT as well as your API keys that you source from "Numbeo" and "Open Weather".
+   **Note** - If you do not pay for the Numbeo API key, you have to request the academic license. **IT IS NOT FOR COMMERCIAL USAGE**
+
+   - Using our schema.sql file, you should build your database table within your command console and link it to your repository
+
+   - If you have any alterations or want to fine tune the application for your usage, you may. Otherwise, start your NODEMON and visit localhost in your browser.
 
 ### USER STORIES ###
 
@@ -136,5 +150,3 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
   "yearLastUpdate":2012,
   "currency":"EUR"
 }
-
-resolution : 15 min walks, and facilitating conversation by another partner  
