@@ -36,8 +36,9 @@ body main section{
     border:inset 20px maroon;
 }
 body main section img{
-    height: 600px;
+    height: 400px;
     width: 400px;
+    margin:auto;
 }
 body main section p{
     font-weight: bolder;
@@ -51,4 +52,23 @@ body main section p{
 }
 footer{
     outline: 3px solid white;
+}#home{
+    font-size: 45px;
+    color:black;
+    background: white;
+    border-radius: 5px;
+    border: solid white 1px;
+    box-shadow: 10px 10px 5px grey;
+    width: 80px;
+    height:40px;
+
+}
+#home:hover{
+    color:white;
+    background: black;
+    border: 2px solid white;
+    transition-duration: 350ms;
+}
+#tannerSection img{
+    transform: rotate(90deg);
 }

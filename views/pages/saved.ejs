@@ -11,6 +11,7 @@
         <main>
             <header>
                 <%- include('../partials/header') %>
+                <a id="home" href="/" >home</a>
             </header>
 
             <section>
@@ -28,7 +29,7 @@
                           <p>Health Index: <%= city.health %></p>
                           <p>Property Index: <%= city.property %></p>
                           <p>Climate Index: <%= city.climate %></p>
-                          <a href="/delete/<%= city.id %>"><button>Delete this city from saved</button></a>
+                          <a href="/delete/<%= city.id %>"><button id="deleteButton">Delete this city from saved</button></a>
                       <% }) %>
                     </ul>
             </section>

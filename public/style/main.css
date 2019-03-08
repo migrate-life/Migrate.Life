@@ -60,10 +60,12 @@ footer{
     color: white;
     text-align: center;
     height: 100%;
-    line-height: 60px;
+    
+}
+footer p{
+    padding: 20px;
 }
 .footerButton{
-    width: 20em;
     background: rgb(245, 245, 245, 0.7);
     border:maroon 6px solid;
 }
@@ -71,5 +73,5 @@ footer{
     text-decoration: none;
     color: white;
     text-shadow: 2px 2px maroon;
-    font-size: 30px;
+    font-size: 18px;
 }
