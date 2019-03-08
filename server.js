@@ -48,7 +48,7 @@ function getRegion(coord){
   } else if(coord === 'west') {
     return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'5'}
   } else if(coord === 'south') {
-    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'5'}
+    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'4'}
   }else{
     return false;
   }
