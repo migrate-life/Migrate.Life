@@ -18,13 +18,13 @@ client.connect();
 client.on('error', err => console.error(err));
 
 //EJS declaration
-app.use(methodOverride((request,response) =>{
-  if(request.body && typeof request.body === 'object' && '_method' in request.body){
-    let method = request.body._method;
-    delete request.body.method;
-    return method;
-  }
-}))
+// app.use(methodOverride((request,response) =>{
+//   if(request.body && typeof request.body === 'object' && '_method' in request.body){
+//     let method = request.body._method;
+//     delete request.body.method;
+//     return method;
+//   }
+// }))
 
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
@@ -42,13 +42,13 @@ app.get('/delete/:id', deleteFromDB);
 
 function getRegion(coord){
   if(coord === 'north') {
-    return {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'3'}
+    return {left:'-111.437624', bottom:'39.548000', right:'-84.919028', top:'48.473604', zoom:'5'}
   } else if(coord === 'east') {
-    return {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'3'}
+    return {left:'-84.919028', bottom:'25.891349', right:'-68.528937', top:'42.368691', zoom:'5'}
   } else if(coord === 'west') {
-    return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'3'}
+    return {left:'-125.669681', bottom:'32.120673', right:'-111.437624', top:'48.473604', zoom:'5'}
   } else if(coord === 'south') {
-    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'3'}
+    return {left:'-111.437624', bottom:'29.416872', right:'-84.919028', top:'39.548000', zoom:'5'}
   }else{
     return false;
   }
@@ -83,7 +83,7 @@ function qualityUrl(city){
 }
 
 function rangeIdentifier(obj) {
-  console.log(obj);
+  // console.log(obj);
   if(parseInt(obj.temp) >= 85){
     return 'Hot';
   } else if(parseInt(obj.temp) >= 65){
@@ -141,7 +141,7 @@ function saveToDb(request, response) {
   const values = Object.values(request.body);
 
   values.splice(1, 1, foreignKey(values[1]));
-  console.log('line 131', values)
+  // console.log('line 131', values)
   client.query(sql, values)
   response.redirect('/saved');
 }
