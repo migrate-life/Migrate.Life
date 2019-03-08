@@ -68,7 +68,7 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 
 - As a User, when looking through my saved options, I would like to be able to compare them.
 
-## DEV STORIES ##
+### DEV STORIES ###
 
 - As a Developer, I want my application to be complete to meet my MVP.
 
