@@ -199,7 +199,7 @@ function CityData(place, price, quality, climateRange){
   this.name = place.name;
   this.latitude = place.latitude;
   this.longitude = place.longitude;
-  this.temp = place.temp;
+  this.temp = Math.floor(place.temp);
 
   this.milk = (price.milk * 3.7854).toFixed(2);
   this.beer = (price.beer * 2.113).toFixed(2);
