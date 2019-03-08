@@ -1,0 +1,44 @@
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+#container{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.allDirections{
+    flex-direction: column
+}
+.allDirections:hover {
+    background:white;
+    border: 10px solid black;
+    border-radius: 15px;
+    text-shadow: 3px red;
+    transition-duration: 350ms;
+    
+}
+
+.allDirections{
+    color: white;
+    font-size: 60px;
+}
+
+.allDirections:hover {
+    color: black;
+    transition-duration: 350ms;
+}
+
+#aboutLink{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+#north, #south, #east, #west{
+    background-image: linear-gradient(-90deg, rgb(0, 0, 0, 0.7), rgb(128, 0, 0, 0.7), rgb(0, 0, 0, 0.7));
+}

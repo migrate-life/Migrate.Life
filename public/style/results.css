@@ -2,64 +2,174 @@
 @import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore|Montserrat:600');
 
 header {
-    background: #333;
-    color:white;
+    background-image: linear-gradient(-90deg, black, maroon, black,);
+    color: white;
     text-align: center;
-    height: 140px;
-    line-height: 100px;
+    height: 180px;
+    line-height: 50px;
     margin-bottom: 100px;
+    border:20px white double;
 }
 
-h1 {
+header h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 60px;
+    font-size: 30px;
+    padding-top: 10px;
 }
 
-h2 {
-    margin-top: -50px;
+header h2 {
+    text-align: center;
     font-family: 'La Belle Aurore', cursive;
-    font-size: 28px;
+    font-size: 22px;
+    padding-top: 5px;
 }
 
 *{
-
-    padding: 20px;
-    font-size: 40px;
     text-decoration: none;
 }
 
-a{
+#home{
     font-size: 45px;
     color:black;
-    background: #888;
-    border-radius: 15px;
+    background: white;
+    border-radius: 5px;
     border: solid white 1px;
+    box-shadow: 10px 10px 5px grey;
+    width: 80px;
+    height:40px;
 
 }
-a:hover{
+#home:hover{
     color:white;
     background: black;
     border: 2px solid white;
+    transition-duration: 350ms;
 }
 body{
     width: 960px;
     margin:auto;
-    outline: 1px solid black;
+    
 }
 li{
     margin: 30px;
+    border: 25px outset maroon;
+    box-shadow: 10px 10px 5px grey;
 }
 
 li h4{
-    background: rgb(177, 84, 84);
+    background: black;
+    color:white;
+    border:white 3px outset;
 }
 li p{
-    background: rgb(93, 93, 206);
+    border: 3px solid black;
+    background:whitesmoke;
+    padding:10px;
 }
 ul{
-    background: white;
+    border: 20px double black;
+    font-size: 35px;
+    padding-top:20px;
+    background:white;
 }
 
-html{
-    background: rgb(94, 91, 91);
+body{
+    background-image: linear-gradient(-90deg, maroon, black, maroon);
+}
+ 
+@media (max-width: 960px){
+    body{
+        width:960px;
+    }
+}
+footer{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    height: 100%;
+    line-height: 60px;
+}
+#footerButton{
+    width: 15em;
+    background: rgb(245, 245, 245, 0.7);
+    border:maroon 4px solid;
+}
+#aboutLink{
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px maroon;
+    font-size: 18px;
+}
+b{
+    font-weight: bolder;
+}
+#saveButton{
+    font-size:80px;
+    width: 100%;
+    height:100%;
+}
+#saveButton:hover{
+    border: 5px solid black;
+    transition-duration: 550ms;
+    background-image: linear-gradient(white, #666);
+    text-decoration: underline;
+    
+}
+#saveButton:active{
+    background-image: linear-gradient(#666, black);
+    color:white;
+    text-decoration: underline;
+
+}
+#deleteButton{
+    font-size:60px;
+    width: 100%;
+    height:100%;
+}
+#deleteButton:hover{
+    border: 5px solid black;
+    transition-duration: 550ms;
+    background-image: linear-gradient(white, #666);
+    text-decoration: underline;
+    
+}
+#deleteButton:active{
+    background-image: linear-gradient(#666, black);
+    color:white;
+    text-decoration: underline;
+
+}
+footer{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    
+}
+
+.footerButton{
+    background: rgb(245, 245, 245, 0.7);
+    border:maroon 6px solid;
+}
+.aboutLink{
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px maroon;
+    font-size: 18px;
+}
+}#home{
+    font-size: 45px;
+    color:black;
+    background: white;
+    border-radius: 5px;
+    border: solid white 1px;
+    box-shadow: 10px 10px 5px grey;
+    width: 80px;
+    height:40px;
+
+}
+#home:hover{
+    color:white;
+    background: black;
+    border: 2px solid white;
+    transition-duration: 350ms;
 }
