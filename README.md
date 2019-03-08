@@ -47,7 +47,7 @@ Do you want to live somewhere else? Are you unhappy with where you live? You pic
 ### How to set up locally ###
 
 - Clone the repository onto your machine
-   - Once Repo is cloned and set up within VS Code, you have to npm initialize for your package.json/package-lock, as well as install all required dependencies (express, CORS, Superagent, PG, Method-Override, EJS, dotenv) as well as 
+   - Once Repo is cloned and set up within VS Code, you have to npm initialize for your package.json/package-lock, as well as install all required dependencies (express, CORS, Superagent, PG, Method-Override, EJS, dotenv) 
 
    - Once all dependencies are installed and verified to be in your package.json and any other npm modules are up to date, you may begin to set prepare the application for a local deployment. You need to create a .env file and declare your PORT as well as your API keys that you source from "Numbeo" and "Open Weather".
    **Note** - If you do not pay for the Numbeo API key, you have to request the academic license. **IT IS NOT FOR COMMERCIAL USAGE**
